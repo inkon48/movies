@@ -7,6 +7,10 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/", async(req, res) => {
+    res.send("<p>Welcome</p>");
+});
+
 app.get("/api/movies", async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM movies");
